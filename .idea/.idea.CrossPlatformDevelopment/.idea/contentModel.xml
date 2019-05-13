@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\s188045\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\s188045\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_CrossPlatformDevelopment.-1718745571.00" t="ExcludeRecursive" />
+    <e p="C:\Users\s188045\Documents\GitHub\CrossPlatformDevelopment" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Animation" t="Include">
+          <e p="ReadMe.txt" t="Include" />
+        </e>
+        <e p="Audio" t="Include">
+          <e p="ReadMe.txt" t="Include" />
+        </e>
+        <e p="Materials" t="Include">
+          <e p="ReadMe.txt" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="ReadMe.txt" t="Include" />
+        </e>
+        <e p="Prefabs" t="Include">
+          <e p="ReadMe.txt" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="ReadMe.txt" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="AgentBehaviour.cs" t="Include" />
+          <e p="FleeBehaviour.cs" t="Include" />
+          <e p="SeekBehaviour.cs" t="Include" />
+        </e>
+        <e p="Textures" t="Include">
+          <e p="ReadMe.txt" t="Include" />
+        </e>
+      </e>
+      <e p="CrossPlatformDevelopment.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
