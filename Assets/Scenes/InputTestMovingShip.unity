@@ -682,6 +682,10 @@ Prefab:
       propertyPath: cameraRef
       value: 
       objectReference: {fileID: 1913737500}
+    - target: {fileID: 1092651925217906, guid: c013511c31c7c2f4fb26655e666234c8, type: 2}
+      propertyPath: m_Name
+      value: PlayerShip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c013511c31c7c2f4fb26655e666234c8, type: 2}
   m_IsPrefabAsset: 0

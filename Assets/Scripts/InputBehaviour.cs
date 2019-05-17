@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputBehaviour : MonoBehaviour
 {
 	[Header("Variables")]
-	[SerializeField] private Vector3 moveVector;
+	[SerializeField] public Vector3 moveVector;
 	[SerializeField] private floatVariable speed;
 	[SerializeField] private Vector3 threeDLocation;
 	

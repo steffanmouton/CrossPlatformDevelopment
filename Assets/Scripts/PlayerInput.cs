@@ -12,6 +12,7 @@ public static class PlayerInput
 			return val;
 		}
 	}
+
 }
 
 // Camera.main.screentoworldpoint
