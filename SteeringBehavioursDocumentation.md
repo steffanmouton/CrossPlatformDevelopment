@@ -1,0 +1,272 @@
+# Steering Behaviour Documentation
+
+Steffan Mouton
+
+s188045
+
+AI Assessment
+
+## Requirements Documentation
+
+- Description of Problem
+  - Name: Steering Behaviour
+  - Problem Statement: Create 'lifelike' movement of AI agents using steering behaviour algorithms
+  - Problem Specification: Can be done in pygame or in Unity. Can be proven via test cases in console or by visual representation
+- Output Information
+  - I opted to use Unity, and proof is via visual representation
+
+- User Interface Information
+  - Unity Project. EXE build only shows Wander behaviour. Must view in Unity Engine to see other behaviours.
+
+## Design Documentation
+
+- Information about the objects
+  - *Class Information*
+    - Name: PlayerInput
+      - Description: Static class so that a move vector can always be determined from input axes
+      - Base Class: NA
+      - Protection: public
+      - Module Operations
+        - Prototype: static Vector2 Move
+          - Description: Property that returns a Vector2 of player input as gathered by Unity
+          - Pre-Conditions: NA
+          - Post-Conditions: return Vector2 value, NOT NORMALIZED
+          - Protection: public
+    - Name: InputBehaviour
+      - Description: The behaviour script for moving the player
+      - Base Class: MonoBeahviour
+      - Class Attributes
+        - Name: moveVector
+          - Description: holds the player's current velocity each frame
+          - Type: Vector3
+          - Range of Acceptable Values: any Vector3
+          - Protection: public
+        - Name: speed
+          - Description: can be used to cap the player's movespeed
+          - Type: floatVariable
+          - Range of Acceptable Values: any float >= 0
+          - Protection: private
+        - Name: threeDLocation
+          - Description: used to store the mouse's current location in 3D space in Unity
+          - Type: Vector3
+          - Range of Acceptable Values: any Vector3
+          - Protection: private
+        - Name: tilt
+          - Description: sets a value that controls the player ship's tilt
+          - Type: floatVariable
+          - Range of Acceptable Values: any float
+          - Protection: private
+        - Name: turretTransform
+          - Description: reference to the player ship's turret transform
+          - Type: Transform
+          - Range of Acceptable Values: any Transform
+          - Protection: private
+        - Name: barrelTipTransform
+          - Description: reference to the player ship's barrel tip
+          - Type: Transform
+          - Range of Acceptable Values: any Transform
+          - Protection: private
+        - Name: normalBullet
+          - Description: reference to the player ship's normal bullet
+          - Type: GameObject
+          - Range of Acceptable Values: GameObject designed to be a bullet fired by the player ship
+          - Protection: private
+        - Name: cameraRef
+          - Description: reference to a camera
+          - Type: Camera
+          - Range of Acceptable Values: any Camera
+          - Protection: private
+    - Name: PlayerInput
+      - Description: Static class so that a move vector can always be determined from input axes
+      - Base Class: NA
+      - Protection: public
+      - Module Operations
+        - Prototype: static Vector2 Move
+          - Description: Property that returns a Vector2 of player input as gathered by Unity
+          - Pre-Conditions: NA
+          - Post-Conditions: return Vector2 value, NOT NORMALIZED
+          - Protection: public
+    - Name: AgentBehaviour
+      - Description: The behaviour script for moving the player
+      - Base Class: MonoBeahviour
+      - Class Attributes
+        - Name: targetTransform
+          - Description: reference to the target's Transform
+          - Type: Transform
+          - Range of Acceptable Values: any Transform
+          - Protection: private
+        - Name: targetObjectBhv
+          - Description: reference to the target object's movement behaviour, used to find target's velocity. In this implementation, it is the player.
+          - Type: InputBehaviour
+          - Range of Acceptable Values: player obj InputBehaviour
+          - Protection: private
+        - Name: velocity
+          - Description: used to store the AI agent's current velocity
+          - Type: Vector3
+          - Range of Acceptable Values: any Vector3
+          - Protection: public
+        - Name: MAX_SPEED
+          - Description: sets a value that caps the AI movespeed
+          - Type: floatVariable
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+        - Name: spawnPosition
+          - Description: stores the object's spawn position
+          - Type: Vector3
+          - Range of Acceptable Values: any Vector3, set on Start()
+          - Protection: public
+      - Class Operations
+        - Prototype: void AddForce(Vector3 force)
+          - Description: Used by specific behaviours to modify the velocity of the Agent. Additive.
+          - Pre-Conditions: Agent exists
+          - Post-Conditions: Velocity is modified by force value
+          - Protection: public
+    - Name: SeekBehaviour
+      - Description: The behaviour script for seeking a target
+      - Base Class: MonoBeahviour
+      - Class Attributes
+        - Name: _agentBehaviour
+          - Description: reference to this agent's AgentBehaviour
+          - Type: AgentBehaviour
+          - Range of Acceptable Values: this agent's AgentBehaviour
+          - Protection: private
+        - Name: seekSpeed
+          - Description: value to modify force magnitude while seeking
+          - Type: float
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+        - Name: MAX_SPEED
+          - Description: value to cap agent's max seek speed
+          - Type: float
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+      - Class Operations
+        - Prototype: void Update()
+          - Description: Unity Update event. Calls AgentBehaviour.AddForce() with argument of a force that will make Agent move toward target.
+          - Pre-Conditions: Agent exists. Target Exists.
+          - Post-Conditions: AgentBehaviour.Velocity is modified by force value
+    - Name: FleeBehaviour
+      - Description: The behaviour script for fleeing a target
+      - Base Class: MonoBeahviour
+      - Class Attributes
+        - Name: _agentBehaviour
+          - Description: reference to this agent's AgentBehaviour
+          - Type: AgentBehaviour
+          - Range of Acceptable Values: this agent's AgentBehaviour
+          - Protection: private
+        - Name: fleeSpeed
+          - Description: value to modify force magnitude while fleeing
+          - Type: float
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+        - Name: MAX_SPEED
+          - Description: value to cap agent's max flee speed
+          - Type: float
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+      - Class Operations
+        - Prototype: void Update()
+          - Description: Unity Update event. Calls AgentBehaviour.AddForce() with argument of a force that will make Agent move away from target.
+          - Pre-Conditions: Agent exists. Target Exists.
+          - Post-Conditions: AgentBehaviour.Velocity is modified by force value
+    - Name: WanderBehaviour
+      - Description: The behaviour script for wandering around realistically
+      - Base Class: MonoBeahviour
+      - Class Attributes
+        - Name: ab
+          - Description: reference to this agent's AgentBehaviour
+          - Type: AgentBehaviour
+          - Range of Acceptable Values: this agent's AgentBehaviour
+          - Protection: private
+        - Name: wanderCircleCenter
+          - Description: Vector3 that sets the wander circle ahead of the agent
+          - Type: Vector3
+          - Range of Acceptable Values: any Vector3
+          - Protection: private
+        - Name: wanderCircleDistance
+          - Description: Scalar value for the wander Circle to set distance
+          - Type: floatVariable
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+        - Name: displacement
+          - Description: Vector3 that finds the displacement away from wander circle center. Utilizes Unity Random.randomUnitSphere
+          - Type: Vector3
+          - Range of Acceptable Values: any Vector3
+          - Protection: private
+      - Class Operations
+        - Prototype: void Update()
+          - Description: Unity Update event. Calls AgentBehaviour.AddForce() with argument of a force that will make Agent wander realistically
+          - Pre-Conditions: Agent exists.
+          - Post-Conditions: AgentBehaviour.Velocity is modified by force value
+    - Name: ArriveBehaviour
+      - Description: The behaviour script for making the agent approach and stop at its target gradually
+      - Base Class: MonoBeahviour
+      - Class Attributes
+        - Name: ab
+          - Description: reference to this agent's AgentBehaviour
+          - Type: AgentBehaviour
+          - Range of Acceptable Values: this agent's AgentBehaviour
+          - Protection: private
+        - Name: slowingRadius
+          - Description: value that controls how far away from target the agent begins to slow
+          - Type: floatVariable
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+        - Name: MAX_VELOCITY
+          - Description: value for capping the max speed of the agent within the arrive behaviour
+          - Type: floatVariable
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+      - Class Operations
+        - Prototype: void Update()
+          - Description: Unity Update event. Calls AgentBehaviour.AddForce() with argument of a force that will make Agent approach its target gradually
+          - Pre-Conditions: Agent exists. Target Exists
+          - Post-Conditions: AgentBehaviour.Velocity is modified by force value
+    - Name: PursueBehaviour
+      - Description: The behaviour script for making the agent pursue its target, predicting where it will be
+      - Base Class: MonoBeahviour
+      - Class Attributes
+        - Name: ab
+          - Description: reference to this agent's AgentBehaviour
+          - Type: AgentBehaviour
+          - Range of Acceptable Values: this agent's AgentBehaviour
+          - Protection: private
+        - Name: seekSpeed
+          - Description: value that controls how fast the agent pursues the target
+          - Type: float
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+        - Name: MAX_SPEED
+          - Description: value for capping the speed of the agent within the pursue behaviour
+          - Type: floatVariable
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+      - Class Operations
+        - Prototype: void Update()
+          - Description: Unity Update event. Calls AgentBehaviour.AddForce() with argument of a force that will make Agent seek its target's future position
+          - Pre-Conditions: Agent exists. Target Exists
+          - Post-Conditions: AgentBehaviour.Velocity is modified by force value
+    - Name: EvadeBehaviour
+      - Description: The behaviour script for making the agent evade its target, predicting where it will be
+      - Base Class: MonoBeahviour
+      - Class Attributes
+        - Name: ab
+          - Description: reference to this agent's AgentBehaviour
+          - Type: AgentBehaviour
+          - Range of Acceptable Values: this agent's AgentBehaviour
+          - Protection: private
+        - Name: seekSpeed
+          - Description: value that controls how fast the agent flees the target
+          - Type: float
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+        - Name: MAX_SPEED
+          - Description: value for capping the speed of the agent within the evade behaviour
+          - Type: floatVariable
+          - Range of Acceptable Values: any float > 0
+          - Protection: private
+      - Class Operations
+        - Prototype: void Update()
+          - Description: Unity Update event. Calls AgentBehaviour.AddForce() with argument of a force that will make Agent flee its target's future position
+          - Pre-Conditions: Agent exists. Target Exists
+          - Post-Conditions: AgentBehaviour.Velocity is modified by force value
