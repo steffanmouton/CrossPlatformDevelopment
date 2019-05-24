@@ -6,7 +6,7 @@ public class FleeBehaviour : MonoBehaviour {
 	[SerializeField] private AgentBehaviour _agentBehaviour;
 	[SerializeField] private float fleeSpeed = 5.0f;
 	[SerializeField] private float MAX_SPEED = 1.0f;
-	[SerializeField] private float safeDistance = 10.0f;
+	[SerializeField] private float safeDistance = 20.0f;
 	
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,11 @@ public class FleeBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		var distance = _agentBehaviour.TargetTransform.position - transform.position;
+		if (distance.magnitude > safeDistance)
+			return;
+		
 		var direction = distance.normalized;
 		var force = direction * fleeSpeed;
 		

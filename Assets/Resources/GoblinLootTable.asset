@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fd4237870ae7f478531c035947201d, type: 3}
+  m_Name: GoblinLootTable
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 11400000, guid: 17af3234bee603e4291f128c53c79afa, type: 2}
+  - {fileID: 11400000, guid: c8cb699842fd535498a77d76cc96274e, type: 2}
