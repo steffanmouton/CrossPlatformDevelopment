@@ -8,6 +8,6 @@ public class ItemBehaviour : MonoBehaviour
 
     private void Start()
     {
-        
+        tag = "Item";
     }
 }

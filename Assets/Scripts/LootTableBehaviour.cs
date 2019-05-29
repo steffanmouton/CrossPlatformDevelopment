@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LootTableBehaviour : MonoBehaviour {
 
-	public LootTableScriptable lootTable;
+	public InventoryScriptable lootTable;
 	public GameObject ItemPrefab;
 	public List<ItemScriptable> RolledLoot;
 	
@@ -28,6 +28,7 @@ public class LootTableBehaviour : MonoBehaviour {
 			i.transform.localScale *= 2;
 			i.GetComponent<ItemBehaviour>().Item = item;
 			i.GetComponent<SpriteRenderer>().sprite = item.Display;
+			i.GetComponent<Rigidbody>().AddForce(Random.onUnitSphere.x * 100, 0, Random.onUnitSphere.z * 100);
 			RolledLoot.Add(item);
 		}
 	}

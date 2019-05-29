@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
 
-	[SerializeField] private List<ItemScriptable> Inventory;
+	public InventoryScriptable Inventory;
 	
+
 
 }
