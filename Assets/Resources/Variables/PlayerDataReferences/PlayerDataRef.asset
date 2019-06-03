@@ -9,7 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d486f686a43e3047a1dae27bd8d55bb, type: 3}
-  m_Name: PlayerData
+  m_Name: PlayerDataRef
   m_EditorClassIdentifier: 
-  xp: {fileID: 0}
-  saveName: {fileID: 0}
+  xpRef: {fileID: 11400000, guid: da801f1398f875c4dabcc528b78319d3, type: 2}
+  levelRef: {fileID: 11400000, guid: 37c343f693b562944b0287a00cbebe88, type: 2}
+  saveName: {fileID: 11400000, guid: 0e25046d45a90c7459b3a0820c5f8dac, type: 2}
+  _experience: 0
+  _level: 0

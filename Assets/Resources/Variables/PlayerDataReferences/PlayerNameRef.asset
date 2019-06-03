@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a30c070f48b2bb4c861d753f1154d99, type: 3}
   m_Name: PlayerNameRef
   m_EditorClassIdentifier: 
-  value: 
+  value: McTester
