@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Variables/float")]
-public class floatVariable : ScriptableObject
+namespace Resources
 {
-
-	[SerializeField] private float value;
-	// Use this for initialization
-	public float Value
+	[CreateAssetMenu(menuName = "Variables/float")]
+	public class floatVariable : ScriptableObject
 	{
-		get { return value; }
-		set { this.value = value; }
+
+		[SerializeField] private float value;
+		// Use this for initialization
+		public float Value
+		{
+			get { return value; }
+			set { this.value = value; }
+		}
 	}
 }
