@@ -7,8 +7,8 @@ namespace Player
 	{
 		[SerializeField]
 		private PlayerDataVariable _runtimeInstance;
-
 		[SerializeField] private Global saveBot;
+
 		// Use this for initialization
 		void Start ()
 		{
@@ -28,6 +28,7 @@ namespace Player
 		public void Load()
 		{
 			_runtimeInstance = saveBot.Load<PlayerDataVariable>(_runtimeInstance);
+			
 		}
 
 		void AddItem()

@@ -2,6 +2,10 @@
 
 namespace Resources
 {
+	/// <summary>
+	/// Custom Variable type. Used to store information regarding a player character, such as
+	/// Name, XP, and Level.
+	/// </summary>
 	[CreateAssetMenu(menuName = "Player/data")]
 	public class PlayerDataVariable : ScriptableObject
 	{

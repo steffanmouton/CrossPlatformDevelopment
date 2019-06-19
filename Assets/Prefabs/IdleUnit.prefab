@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 4539208213999654}
   - component: {fileID: 95207608900864224}
   m_Layer: 0
-  m_Name: Knight
+  m_Name: IdleUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
