@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d486f686a43e3047a1dae27bd8d55bb, type: 3}
+  m_Name: PlayerDataRef
+  m_EditorClassIdentifier: 
+  xpRef: {fileID: 11400000, guid: da801f1398f875c4dabcc528b78319d3, type: 2}
+  levelRef: {fileID: 11400000, guid: 37c343f693b562944b0287a00cbebe88, type: 2}
+  saveName: {fileID: 11400000, guid: 0e25046d45a90c7459b3a0820c5f8dac, type: 2}
+  _experience: 0
+  _level: 0

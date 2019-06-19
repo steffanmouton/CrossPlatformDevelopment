@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using Resources.Items;
 using UnityEngine;
 
-public class PlayerBehaviour : MonoBehaviour
+namespace Player
 {
+	public class PlayerBehaviour : MonoBehaviour
+	{
 
-	public InventoryScriptable Inventory;
+		public InventoryScriptable Inventory;
 	
 
 
+	}
 }
