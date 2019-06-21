@@ -36,5 +36,11 @@ namespace Resources
 				levelRef.Value = value;
 			}
 		}
+
+		public void UpdateValues()
+		{
+			Experience = xpRef.Value;
+			Level = levelRef.Value;
+		}
 	}
 }

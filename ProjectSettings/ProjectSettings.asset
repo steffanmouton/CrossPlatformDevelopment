@@ -648,7 +648,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: c2ac662a-b5c5-434f-9497-9c3d3370c096
   projectName: CrossPlatformDevelopment
   organizationId: smouton8993

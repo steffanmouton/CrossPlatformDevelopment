@@ -2,7 +2,7 @@
 using System.Runtime.ConstrainedExecution;
 using UnityEditor;
 using UnityEngine;
-
+#if UNITY_EDITOR
 namespace Rokoko.MotionLibraryCompatibility
 {
     internal class MotionLibraryWindowCompatibility : EditorWindow
@@ -125,3 +125,4 @@ namespace Rokoko.MotionLibraryCompatibility
         }
     }
 }
+#endif

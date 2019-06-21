@@ -28,7 +28,8 @@ namespace Player
 		public void Load()
 		{
 			_runtimeInstance = saveBot.Load<PlayerDataVariable>(_runtimeInstance);
-			
+			_runtimeInstance.xpRef.Value = _runtimeInstance.Experience;
+			_runtimeInstance.levelRef.Value = _runtimeInstance.Level;
 		}
 
 		void AddItem()
@@ -42,8 +43,15 @@ namespace Player
 		}
 
 		public void GainExperience()
-		{
+		{ 
 			_runtimeInstance.Experience += 1;
+		}
+		
+		public void Reset()
+		{
+			_runtimeInstance.xpRef.Value = 0;
+			_runtimeInstance.levelRef.Value = 0;
+			_runtimeInstance.UpdateValues();
 		}
 	}
 }
