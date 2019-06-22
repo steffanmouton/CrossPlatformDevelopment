@@ -12,7 +12,6 @@ namespace Resources
 		
 		public intVariable xpRef;
 		public intVariable levelRef;
-		public stringVariable saveName;
 		[SerializeField] private int _experience;
 		[SerializeField] private int _level;
 		public int Experience
@@ -36,7 +35,8 @@ namespace Resources
 				levelRef.Value = value;
 			}
 		}
-
+		
+		// Updates the local variables to match the reference ScriptableObjects
 		public void UpdateValues()
 		{
 			Experience = xpRef.Value;
